@@ -9,7 +9,14 @@
 docker compose -f docker-compose.infra.yml up -d
 ```
 
-### 2. アプリケーションの起動
+### 2. Huskyのセットアップ
+Huskyによるgit hooksを有効にします。
+
+```bash
+./bin/npm run prepare
+```
+
+### 3. アプリケーションの起動
 プロファイルを指定して、必要なサービスのみを起動できます。
 
 **Webのみ起動（基本）**
@@ -34,7 +41,7 @@ docker compose --profile web --profile queue --profile scheduler up -d
 docker compose up -d
 ```
 
-### 3. アプリケーションの停止
+### 4. アプリケーションの停止
 プロファイルを指定して、特定のサービスのみを停止できます（DBは停止しません）。
 
 ```bash
@@ -53,5 +60,7 @@ WSLから以下のコマンドが利用可能です。
 - `./bin/composer`: Composerコマンド
 - `./bin/pint`: コードフォーマッター
 - `./bin/phpstan`: 静的解析
+- `./bin/npm`: npmコマンド
+- `./bin/npx`: npxコマンド
 
 詳細なルールは [GEMINI.md](GEMINI.md) を参照してください。

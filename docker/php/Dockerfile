@@ -12,6 +12,10 @@ RUN apt-get update && apt-get install -y \
     supervisor \
     && docker-php-ext-install pdo_mysql bcmath intl zip pcntl
 
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
+
 # Redis extension
 RUN pecl install redis && docker-php-ext-enable redis
 
